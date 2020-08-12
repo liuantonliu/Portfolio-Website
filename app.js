@@ -17,29 +17,34 @@ $(document).ready(function() {
 //get hamburger to change color
 $(document).ready(function(){
   //for refresh
-  if($(document).scrollTop() > $(window).height() && !$('#myCheck').prop('checked')){
+  if($(document).scrollTop() > window.innerHeight && !$('#myCheck').prop('checked')){
     $("#changeColor").css('background', clrdark);
   }
   else{
     $("#changeColor").css('background',clrlight);
   }
   //for scroling
-  $(window).scroll(function () {
-    if($(document).scrollTop() > $(window).height() && !$('#myCheck').prop('checked')){
-      $("#changeColor").css('background', clrdark);
-    }
-    else{
-      $("#changeColor").css('background',clrlight);
-    }
-  });
+  $(document.body).on('touchmove', onScroll); // for mobile
+  $(window).on('scroll', onScroll);//for desktop
 });
+
+function onScroll() {
+  // alert("triggered");
+  if($(document).scrollTop() > window.innerHeight && !$('#myCheck').prop('checked')){
+    $("#changeColor").css('background', clrdark);
+  }
+  else{
+    $("#changeColor").css('background',clrlight);
+  }
+};
+
 //change color when menu is called/uncalled
 $('#myCheck').change(function(){
   if (this.checked) {
     // window.alert("checked!");
     $("#changeColor").css('background', clrlight);
   }else{
-    if($(document).scrollTop() > $(window).height()){
+    if($(document).scrollTop() > window.innerHeight){
       $("#changeColor").css('background', clrdark);
     }
     else{
@@ -73,5 +78,35 @@ color: 0x62d8c,
 color2: 0x343434,
 size: 0.70,
 backgroundColor: 0xd7d7d7
-})
+});
 
+// slick
+$('.box').slick({
+  prevArrow: '<div class="slider-arrow slider-prev fas fa-chevron-circle-left fa-2x"></div>',
+  nextArrow: '<div class="slider-arrow slider-next fas fa-chevron-circle-right fa-2x"></div>',
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  dots: true,
+  responsive: [{
+      breakpoint: 2000,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 1600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
