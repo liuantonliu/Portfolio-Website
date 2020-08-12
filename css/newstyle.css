@@ -206,8 +206,10 @@ nav .menu div div ul li a {
   transition: color 0.4s ease;
 }
 
-.about, .experiences, .competitions, .skills {
+.about, .experiences, .competitions, .skills, .projects {
   padding: 0 10vw 2vh;
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
 }
 
 .secondary_heading {
@@ -480,34 +482,7 @@ nav .menu div div ul li a {
   padding-bottom: 10px;
 }
 
-.experiences {
-  background-color: var(--clr-light);
-  color: var(--clr-dark);
-}
-
-.competitions {
-  background-color: var(--clr-light);
-  color: var(--clr-dark);
-}
-
-.projects {
-  padding: 0 0 2vh 10vw;
-  background-color: var(--clr-light);
-  color: var(--clr-dark);
-  position: relative;
-}
-
-.projects .instructions {
-  font-size: 15px;
-  padding-left: 50px;
-  color: var(--clr-dark);
-}
-
-.projects .software {
-  padding-bottom: 100px;
-}
-
-.projects .software .softhead {
+.projects .software .softhead, .projects .software .hardhead, .projects .hardware .softhead, .projects .hardware .hardhead {
   color: var(--clr-secondary);
   font-size: 40px;
   position: absolute;
@@ -519,85 +494,140 @@ nav .menu div div ul li a {
           transform-origin: 0 0;
 }
 
-.projects .hardware {
-  padding-bottom: 100px;
-}
-
-.projects .hardware .hardhead {
-  color: var(--clr-secondary);
-  font-size: 40px;
-  position: absolute;
-  margin-left: 0;
+.projects .software .hardhead, .projects .hardware .hardhead {
   margin-top: 200px;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
 }
 
-.projects .box {
-  margin-left: 50px;
-  padding: 20px 0;
-  height: 650px;
-  background-color: transparent;
-  overflow-x: scroll;
-  overflow-y: scroll;
-  white-space: nowrap;
+.projects .software .box, .projects .hardware .box {
+  height: auto;
+  margin: 10vh auto;
+  position: relative;
 }
 
-.projects .box .float {
+.projects .software .box .float, .projects .hardware .box .float {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-.projects .box .float:hover {
+.projects .software .box .float:hover, .projects .hardware .box .float:hover {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
 }
 
-.projects .box .projcard {
-  display: inline-block;
-  height: 100%;
-  width: 500px;
+.projects .software .box .projcard, .projects .hardware .box .projcard {
+  position: relative;
   background-color: transparent;
-  color: var(--clr-dark);
-  margin-right: 20px;
+  margin: 0 10px;
+  height: 520px;
+  width: 400px;
 }
 
-.projects .box .projcard .img-container .img {
-  width: 500px;
-  height: 500px;
+.projects .software .box .projcard .vid-container .img, .projects .software .box .projcard .vid-container video, .projects .software .box .projcard .img-container .img, .projects .software .box .projcard .img-container video, .projects .hardware .box .projcard .vid-container .img, .projects .hardware .box .projcard .vid-container video, .projects .hardware .box .projcard .img-container .img, .projects .hardware .box .projcard .img-container video {
+  width: auto;
+  height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.projects .box .projcard .vid-container video {
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.projects .box .projcard .text {
+.projects .software .box .projcard .text, .projects .hardware .box .projcard .text {
   padding-left: 10px;
 }
 
-.projects .box .projcard .text .name {
+.projects .software .box .projcard .text .name, .projects .hardware .box .projcard .text .name {
   font-size: 20px;
   padding: 10px 10px 10px 0;
 }
 
-.projects .box .projcard .text .tool {
+.projects .software .box .projcard .text .tool, .projects .hardware .box .projcard .text .tool {
   font-size: 15px;
   padding-bottom: 10px;
 }
 
-.projects .box .projcard .text .explanation {
+.projects .software .box .projcard .text .explanation, .projects .hardware .box .projcard .text .explanation {
   color: var(--clr-dark);
 }
 
-.projects .box::-webkit-scrollbar {
+.projects .software .slick-dots, .projects .hardware .slick-dots {
+  position: absolute;
+  bottom: -45px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  z-index: 0;
+}
+
+.projects .software .slick-dots li, .projects .hardware .slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.projects .software .slick-dots li button, .projects .hardware .slick-dots li button {
   display: none;
+}
+
+.projects .software .slick-dots li:before, .projects .hardware .slick-dots li:before {
+  top: 1px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: lightgrey;
+  position: absolute;
+}
+
+.projects .software .slick-dots li.slick-active:before, .projects .hardware .slick-dots li.slick-active:before {
+  top: 0;
+  width: 8px;
+  height: 8px;
+  margin-left: -2px;
+  background-color: black;
+}
+
+.projects .software .slider-prev, .projects .hardware .slider-prev {
+  left: 25%;
+}
+
+.projects .software .slider-next, .projects .hardware .slider-next {
+  right: 25%;
+}
+
+.projects .software .slick-arrow, .projects .hardware .slick-arrow {
+  z-index: 5;
+  top: 105%;
+  position: absolute;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .box {
+    width: 420;
+  }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1201px) {
+  .box {
+    width: 840;
+  }
+}
+
+@media screen and (max-width: 2000px) and (min-width: 1601px) {
+  .box {
+    width: 1260;
+  }
+}
+
+@media screen and (min-width: 2001px) {
+  .box {
+    width: 1680;
+  }
 }
 
 .skills .skills-heading {
@@ -644,6 +674,7 @@ nav .menu div div ul li a {
 }
 
 .skills .grid-container .flip-card .flip-card-inner .flip-card-front {
+  z-index: 1;
   background-color: var(--clr-dark);
   color: var(--clr-light);
 }
@@ -658,7 +689,8 @@ nav .menu div div ul li a {
 }
 
 .skills .grid-container .flip-card .flip-card-inner .flip-card-back {
-  background-color: var(--clr-light);
+  z-index: 3;
+  background-color: var(--clr-neutral);
   color: var(--clr-dark);
   -webkit-transform: rotateY(180deg) scale(1.15);
           transform: rotateY(180deg) scale(1.15);
@@ -680,6 +712,14 @@ nav .menu div div ul li a {
 .skills .grid-container .flip-card:hover .flip-card-inner {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+.skills .grid-container .flip-card:hover .flip-card-inner .flip-card-front {
+  z-index: 1;
+}
+
+.skills .grid-container .flip-card:hover .flip-card-inner .flip-card-back {
+  z-index: 3;
 }
 
 footer {
