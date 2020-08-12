@@ -6,7 +6,7 @@
 //     .carousel{
 //         display: none;
 //     }
-//   }
+//   }s
 
 * {
     padding: 0;
@@ -169,8 +169,10 @@ nav {
     }
 }
 
-.about, .experiences, .competitions, .skills {
-  padding: 0 10vw 2vh;
+.about, .experiences, .competitions, .skills, .projects {
+    padding: 0 10vw 2vh;
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
 }
 
 .secondary_heading{
@@ -381,29 +383,9 @@ nav {
     }
 }
 
-.experiences{
-    background-color: var(--clr-light);
-    color: var(--clr-dark);
-}
-
-.competitions{
-    background-color: var(--clr-light);
-    color: var(--clr-dark);
-}
-
 .projects{
-    padding: 0 0 2vh 10vw;
-    background-color: var(--clr-light);
-    color: var(--clr-dark);
-    position: relative;
-    .instructions{
-        font-size: 15px;
-        padding-left: 50px;
-        color: var(--clr-dark);
-    }
-    .software{
-        padding-bottom: 100px;
-        .softhead{
+    .software, .hardware{
+        .softhead, .hardhead{
             color: var(--clr-secondary);
             font-size:40px;
             position: absolute;
@@ -412,71 +394,106 @@ nav {
             transform: rotate(270deg);
             transform-origin: 0 0;
         }
-    }
-    .hardware{
-        padding-bottom: 100px;
         .hardhead{
-            color: var(--clr-secondary);
-            font-size:40px;
-            position: absolute;
-            margin-left: 0;
             margin-top: 200px;
-            transform: rotate(270deg);
-            transform-origin: 0 0;
         }
-    }
-    // side scroll
-    .box{
-        margin-left: 50px;
-        padding:20px 0;
-        height: 650px;
-        background-color: transparent;
-        overflow-x: scroll;
-        overflow-y: scroll; 
-        white-space: nowrap;
-        .float{transition:all 0.3s ease;}
-        .float:hover{transform: scale(0.95);}
-        .projcard{
-            display: inline-block;
-            height: 100%;
-            width: 500px;
-            background-color: transparent;
-            color: var(--clr-dark);
-            margin-right: 20px;
-            .img-container{
-                .img{
-                    width: 500px;
-                    height: 500px;
-                    object-fit: cover;
+        // slick carousel
+        .box {
+            height: auto;
+            margin: 10vh auto;
+            position: relative;
+            .float{transition:all 0.3s ease;}
+            .float:hover{transform: scale(0.95);}
+            .projcard {
+                position: relative;
+                background-color: transparent;
+                margin: 0 10px;
+                height: 520px;
+                width: 400px;
+                .vid-container, .img-container {
+                    .img, video{
+                        width: auto;
+                        height: 400px;
+                        object-fit: cover;
+                    }
                 }
-            }
-            .vid-container{
-                video{
-                    width: 100%;
-                    height: auto;
-                    object-fit: cover;
-                }
-            }
-            .text{
-                padding-left: 10px;
-                .name{
-                    font-size: 20px;
-                    padding: 10px 10px 10px 0;
-                }
-                .tool{
-                    font-size: 15px;
-                    padding-bottom: 10px;
-                }
-                .explanation{
-                    color: var(--clr-dark);
+                .text{
+                    padding-left: 10px;
+                    .name{
+                        font-size: 20px;
+                        padding: 10px 10px 10px 0;
+                    }
+                    .tool{
+                        font-size: 15px;
+                        padding-bottom: 10px;
+                    }
+                    .explanation{
+                        color: var(--clr-dark);
+                    }
                 }
             }
         }
+        
+        .slick-dots {
+            position: absolute;
+            bottom: -45px;
+            display: block;
+            width: 100%;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            z-index: 0;
+            li {
+                position: relative;
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                margin: 0 5px;
+                padding: 0;
+                cursor: pointer;
+                button {
+                    display: none;
+                }
+        
+                &:before {
+                    top: 1px;
+                    -webkit-transition: all 0.5s;
+                    transition: all 0.5s;
+                    content: "";
+                    width: 6px;
+                    height: 6px;
+                    background-color: lightgrey;
+                    position: absolute;
+                }
+        
+                &.slick-active:before {
+                    top: 0;
+                    width: 8px;
+                    height: 8px;
+                    margin-left: -2px;
+                    background-color: black;
+                }
+            }
+        }
+        
+        .slider-prev {left: 25%;}
+        .slider-next {right: 25%;}
+        .slick-arrow {
+            z-index: 5;
+            top: 105%;
+            position: absolute;
+            cursor: pointer;
+        }
     }
-    .box::-webkit-scrollbar{
-        display: none;
-    }
+    
 }
+
+@media screen and (max-width: 1200px) {.box {width: 420;}}
+@media screen and (max-width: 1600px) and (min-width: 1201px) {.box {width: 840;}}
+@media screen and (max-width: 2000px) and (min-width: 1601px) {.box {width: 1260;}}
+@media screen and (min-width: 2001px) {.box {width: 1680;}}
+
+        
 
 .skills{
     .skills-heading{
@@ -508,6 +525,7 @@ nav {
 
                 }
                 .flip-card-front {
+                    z-index: 1;
                     background-color: var(--clr-dark);
                     color: var(--clr-light);
                     div{
@@ -519,7 +537,8 @@ nav {
                     }
                 }
                 .flip-card-back {
-                    background-color: var(--clr-light);
+                    z-index: 3;
+                    background-color: var(--clr-neutral);
                     color: var(--clr-dark);
                     transform: rotateY(180deg) scale(1.15);
                     ul{
@@ -535,7 +554,13 @@ nav {
             &:hover {
                 z-index: 2;
                 .flip-card-inner{
-                    transform: rotateY(180deg);    
+                    transform: rotateY(180deg); 
+                    .flip-card-front{
+                        z-index: 1;
+                    } 
+                    .flip-card-back{
+                        z-index: 3;
+                    }
                 }
             }
         }
