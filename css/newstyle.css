@@ -213,9 +213,10 @@ nav .menu div div ul li a {
 }
 
 .secondary_heading {
-  padding: 50px;
-  font-size: calc(40px + 0.5vw);
+  padding: 50px 0;
+  font-size: calc(30px + 0.5vw);
   font-weight: 700;
+  text-align: center;
 }
 
 .welcome {
@@ -341,21 +342,17 @@ nav .menu div div ul li a {
 }
 
 .about {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   padding: 0 10vw;
   position: relative;
-  height: 100vh;
+  padding-left: 35vw;
   background-color: var(--clr-light);
 }
 
 .about .about-pic {
-  width: 40vw;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -413,73 +410,48 @@ nav .menu div div ul li a {
   padding: 15px 0;
 }
 
-.about .about__container .contact-me .links {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.about .about__container .contact-me .links a {
-  padding: 10px;
-}
-
-.about .about__container .contact-me .links a:hover img {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
 .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-shadow: 0 0 15px rgba(100, 100, 100, 0.2);
           box-shadow: 0 0 15px rgba(100, 100, 100, 0.2);
   padding: 20px;
   margin-bottom: 50px;
-  height: 100%;
 }
 
-.card .img-container .img {
-  height: 100%;
-  width: 40vw;
+.card .media-container .img {
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.card .img-container img#mobile1, .card .img-container img#mobile2 {
+.card .media-container img#pc1, .card .media-container img#pc2 {
   display: none;
 }
 
-.card .content {
-  padding: 20px;
-}
-
 .card .content .position {
-  font-size: 40px;
-  padding: 0 40px 0.5em 40px;
-  font-weight: 600;
-  color: var(--clr-secondary);
-}
-
-.card .content .organization {
   font-size: 30px;
-  padding: 0 40px;
-  font-weight: 400;
+  padding: 10px 0;
+  font-weight: 600;
 }
 
 .card .content .date {
   font-size: 18px;
-  padding: 0 40px;
+  padding: 10px 0;
   font-weight: 400;
 }
 
-.card .content .text {
-  padding: 40px 40px;
+.card .content .organization-container .organization-pic {
+  max-height: 100px;
+  max-width: 500px;
+}
+
+.card .content .organization-container .organization {
+  font-size: 25px;
+  font-weight: 400;
 }
 
 .card .content .text ul li {
-  font-size: 20px;
-  padding-bottom: 10px;
+  font-size: 15px;
+  padding-bottom: 5px;
 }
 
 .projects .software .softhead, .projects .software .hardhead, .projects .hardware .softhead, .projects .hardware .hardhead {
@@ -510,8 +482,8 @@ nav .menu div div ul li a {
 }
 
 .projects .software .box .float:hover, .projects .hardware .box .float:hover {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .projects .software .box .projcard, .projects .hardware .box .projcard {
@@ -766,6 +738,11 @@ footer p {
 .links a img {
   height: 40px;
   width: 40px;
+}
+
+.links a i:hover, .links a img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 ::-webkit-scrollbar {
