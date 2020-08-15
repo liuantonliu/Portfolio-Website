@@ -125,7 +125,7 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
-        //background
+        //background circle
         div{
             background: var(--clr-dark);
             border-radius: 50%;
@@ -136,22 +136,59 @@ nav {
             align-items: center;
             justify-content: center;
             transform: scale(0);
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
             div{
                 text-align: center;
                 max-width: 90vw;
                 max-height: 100vh;
                 opacity: 0;
-                transition: opacity 0.4s ease;
-                ul li{
-                    list-style: none;
-                    color: var(--clr-light);
-                    font-size: 2rem;
-                    padding: 1rem;
-                    a{
-                        color: inherit;
-                        text-decoration: none;
-                        transition: color 0.4s ease;
+                transition: opacity 0.5s ease;
+                ul{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    &:hover li a{
+                        opacity: 0.9;
+                    }
+                    li{
+                        list-style: none;
+                        font-size: calc(15px + 1vw);
+                        padding: 1rem;
+                        &:before{
+                            content: attr(data-text);
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            color: var(--clr-light);
+                            font-size: 6em;
+                            font-weight: 700;
+                            pointer-events: none;
+                            opacity: 0;
+                            letter-spacing: 20px;
+                            transition: 0.5s;
+                            white-space: nowrap;
+                        }
+                        &:hover:before{
+                            opacity: 0.1;
+                            letter-spacing: 0px;
+                        }
+                        a{
+                            text-decoration: none;
+                            transition: all 0.5s ease;
+                            background-color: var(--clr-light);
+                            color: var(--clr-dark);
+                            padding: 6px 15px;
+                            text-transform: uppercase;
+                            display: inline-block;
+                            z-index: 1;
+                            &:hover{
+                                z-index: 5;
+                                // background-color: var(--clr-primary);
+                                transform: scale(1.3);
+                                opacity:1;
+                            }
+                        }
                     }
                 }
             }
@@ -166,11 +203,10 @@ nav {
 }
 
 .secondary_heading{
-    padding: 50px 0;
-    font-size: calc(30px + 0.5vw);
+    padding: calc(20px + 1vw) 0;
+    font-size: calc(25px + 1vw);
     font-weight: 700;
     text-align: center;
-    // color: var(--clr-primary);
 }
 
 .welcome{
@@ -216,7 +252,7 @@ nav {
                 font-size: calc(20px + 3vw);
                 font-weight: 700;
                 white-space: nowrap;
-                letter-spacing: 4px;
+                letter-spacing: 2px;
                 margin-bottom: 20px;
                 position: relative;
                 background: transparent;
@@ -241,7 +277,7 @@ nav {
                     margin-bottom: -40px;
                 }
                 75%{
-                    letter-spacing: 4px;
+                    letter-spacing: 2px;
                     margin-bottom: -40px;
                 }
             }
@@ -259,9 +295,8 @@ nav {
 }
 
 .about{
-    padding: 0 10vw;
+    padding: 0 10vw 0 35vw;
     position:relative;
-    padding-left: 35vw;
     background-color: var(--clr-light);
     .about-pic{
         position: absolute;
@@ -271,12 +306,12 @@ nav {
         object-fit:cover;
     }
     .about__container{
-        height: 100%;
+        // height: 100%;
         width: 100%;
         background: rgba(236,236,236,0.85);
         position:relative;
         text-align:center;
-        padding: 0 20px;
+        padding: 0 2vw;
         font-size: calc(13.5px + 0.5vw);
         .quote{
             padding: 0 1em;
@@ -314,51 +349,78 @@ nav {
         }
     }
 }
+@media screen and (max-width: 900px){
+    .about{
+        padding: 0;
+    }
+}
 
 .card {
-    // display: flex;
     box-shadow: 0 0 15px rgba(100, 100, 100, 0.2);
-    padding: 20px;
+    padding: 2vw;
     margin-bottom: 50px;
-    // height: 100%;
     .media-container{
         .img{
-            // height:100%;
-            width: 100%;
+            max-width: 100%;
+            height: auto;
             object-fit: cover;
         }
-        img#pc1, img#pc2{
-            display: none;
+        iframe{
+            max-width: 100%;
         }
     }
-    .content{
-    //     padding: 20px;
-        .position{
-            font-size: 30px;
-            padding: 10px 0;
-            font-weight: 600;
-        }
-        .date{
-            font-size: 18px;
-            padding: 10px 0;
-            font-weight: 400;
-        }
-        .organization-container{
-            .organization-pic{
-                max-height: 100px;
-                max-width: 500px;
+    .details{
+        padding: 2vw;
+        .info{
+            display: grid;
+            grid-gap: 0 2vw;
+            grid-template-columns: auto 2px auto;
+            margin-bottom: 5vw;
+            .job{
+                .position{
+                    font-size: calc(15px + 1vw);
+                    padding: 0 0 5px 0;
+                    font-weight: 600;
+                }
+                .date{
+                    font-size: calc(8px + 1vw);
+                    font-weight: 400;
+                }
             }
-            .organization{
-                font-size: 25px;
-                font-weight: 400;
+            .divide-line{background-color: var(--clr-dark);}
+            .company{
+                display: flex;
+                align-items:center;
+                .organization-pic{
+                    img{
+                        width: calc(60px + 1vw);
+                        &:hover{
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+                .organization{
+                    padding-left: 2vw;
+                    font-size: calc(8px + 1vw);
+                    font-weight: 400;
+                }
             }
         }
-        
-        .text {
-    //         padding: 40px 40px;
-            ul li{
-                font-size: 15px;
-                padding-bottom: 5px;
+        ul li{
+            font-size: calc(10px + 0.8vw);
+            padding-bottom: 5px;
+        }
+    }
+}
+@media screen and (max-width: 900px) {#pc1,#pc2 {display:none;}}
+@media screen and (min-width: 901px) {#mobile1,#mobile2 {display:none;}}
+@media screen and (min-width: 900px) {
+    .card {
+        display:flex;
+        .media-container{
+            iframe{
+                width:100vw;
+                height:100%;
             }
         }
     }
@@ -368,20 +430,15 @@ nav {
     .software, .hardware{
         .softhead, .hardhead{
             color: var(--clr-secondary);
-            font-size:40px;
-            position: absolute;
-            margin-left: 0;
-            margin-top: 180px;
-            transform: rotate(270deg);
-            transform-origin: 0 0;
-        }
-        .hardhead{
-            margin-top: 200px;
+            font-size: calc(20px + 1vw);
+            // position: absolute;
+            // margin: -5vh 0 0 20vw;
+            // transform-origin: 0 0;
         }
         // slick carousel
         .box {
             height: auto;
-            margin: 10vh auto;
+            margin: 10vh auto 20vh;
             position: relative;
             .float{transition:all 0.3s ease;}
             .float:hover{transform: scale(1.05);}
@@ -389,12 +446,15 @@ nav {
                 position: relative;
                 background-color: transparent;
                 margin: 0 10px;
+                // height: 380px;
                 height: 520px;
+                // width: 250px;
                 width: 400px;
                 .vid-container, .img-container {
                     .img, video{
-                        width: auto;
-                        height: 400px;
+                        width: 400px;
+                        height: auto;
+                        // height: 250px;
                         object-fit: cover;
                     }
                 }
@@ -457,37 +517,50 @@ nav {
             }
         }
         
-        .slider-prev {left: 25%;}
-        .slider-next {right: 25%;}
+        .slider-prev {left: 10%;}
+        .slider-next {right: 10%;}
         .slick-arrow {
             z-index: 5;
-            top: 105%;
+            top: calc(100% + 25px);
             position: absolute;
             cursor: pointer;
         }
     }
-    
 }
 
-@media screen and (max-width: 1200px) {.box {width: 420;}}
+@media screen and (max-width: 500px) {
+    .projects{
+        .software, .hardware{
+            .box{
+                width: 270px;
+                .projcard{
+                    height: 380px;
+                    width: 250px;
+                    .vid-container, .img-container {
+                        .img, video{
+                            width: 250px;
+                            height: auto;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1200px) and (min-width: 501px) {.box {width: 420;}}
 @media screen and (max-width: 1600px) and (min-width: 1201px) {.box {width: 840;}}
 @media screen and (max-width: 2000px) and (min-width: 1601px) {.box {width: 1260;}}
 @media screen and (min-width: 2001px) {.box {width: 1680;}}
 
 .skills{
-    .skills-heading{
-        color:var(--clr-dark);
-        padding: 50px;
-        font-size: calc(40px + 0.5vw);
-        font-weight: 700;
-    }
     .grid-container{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         background-color: transparent;
         .flip-card {
             perspective: 1000px;
-            margin: 20px;
+            margin: calc(10px + 1vw);
             height:20vh;
             .flip-card-inner {
                 position: relative;
@@ -512,7 +585,7 @@ nav {
                         left:50%;
                         top:50%;
                         transform: translate(-50%,-50%);
-                        font-size: 2rem;
+                        font-size: calc(15px + 1vw);
                     }
                 }
                 .flip-card-back {
@@ -521,11 +594,13 @@ nav {
                     color: var(--clr-dark);
                     transform: rotateY(180deg) scale(1.15);
                     ul{
+                        padding: 2vw;
                         position:relative;
                         left:50%;
                         top:50%;
                         transform: translate(-50%,-50%);
-                        font-size: 1rem;
+                        font-size: calc(12px + 0.5vw);
+                        // columns: 2;
                     }
                     
                 }
@@ -550,12 +625,6 @@ footer{
     background-color: var(--clr-dark);
     color: var(--clr-light);
     text-align: center;
-    .footquote{
-        padding-top: 50px;
-        padding-bottom: 30px;
-        font-size: calc(40px + 0.5vw);
-        font-weight: 600;
-    }
     p{
         font-size: 14px;
         color: var(--clr-neutral);
@@ -575,12 +644,12 @@ footer{
         width: 60px;
         
         i{
-            font-size:40px;
+            font-size: calc(25px + 1vw);
             margin: auto;
         }
         img{
-            height:40px;
-            width:40px;
+            height:calc(25px + 1vw);
+            width:calc(25px + 1vw);
             // translate: 0 5px;
         }
         i:hover, img:hover{
