@@ -1,5 +1,4 @@
 <html>
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="css/newstyle.css" />
     <link rel="icon" href = "/pic/logo.png">
   </head>
-
 <body>
   <div class="cursor"></div>
 
@@ -22,12 +20,12 @@
           <div>
               <div>
                   <ul class="nav__list">
-                      <li><a href="#home" class="scroll uncheck">Home</a></li>
-                      <li><a href="#about" class="scroll uncheck">About</a></li>
-                      <li><a href="#experiences" class="scroll uncheck">Experiences</a></li>
-                      <li><a href="#competitions" class="scroll uncheck">Competitions</a></li>
-                      <li><a href="#projects" class="scroll uncheck">Projects</a></li>
-                      <li><a href="#skills" class="scroll uncheck">Skills</a></li>
+                      <li data-text="Home"><a href="#home" class="scroll uncheck">Home</a></li>
+                      <li data-text="About"><a href="#about" class="scroll uncheck">About</a></li>
+                      <li data-text="Experiences"><a href="#experiences" class="scroll uncheck">Experiences</a></li>
+                      <li data-text="Competitions"><a href="#competitions" class="scroll uncheck">Competitions</a></li>
+                      <li data-text="Projects"><a href="#projects" class="scroll uncheck">Projects</a></li>
+                      <li data-text="Skills"><a href="#skills" class="scroll uncheck">Skills</a></li>
                   </ul>
               </div>
           </div>
@@ -80,61 +78,72 @@
       <div class = "secondary_heading"> Experiences </div>
       <div>
           <div class = "card">
-              <div class="media-container">
-                  <iframe src="//www.shipmap.org" frameborder="0"></iframe>
-                  <div>Created by <a target="_top" href="https://www.kiln.digital/">London-based data visualisation studio Kiln</a> and the <a target="_top" href="http://www.bartlett.ucl.ac.uk/energy">UCL Energy Institute</a></div>
-              </div>
-              <div class = "content">
+            <div class="media-container">
+              <iframe src="//www.shipmap.org" frameborder="0"></iframe>
+              <div style="font-size: 7px;">Created by <a target="_top" href="https://www.kiln.digital/">London-based data visualisation studio Kiln</a> and the <a target="_top" href="http://www.bartlett.ucl.ac.uk/energy">UCL Energy Institute</a></div>
+            </div>
+            <div class="details">
+              <div class="info">
+                <div class="job">
                   <p class = "position"> Machine Learning Intern</p>
                   <p class = "date"> May 2020 - August 2020</p>
-                  <a class = "organization-container" href="https://orkestrascs.com/">
-                    <img class = "organization-pic" class="img" src="/pic/ORKESTRA_logo.png"></img>
-                    <p class = "organization"> Orkestra SCS</p>
-                  </a>
-                  <div class = "text">
-                      <ul>
-                          <li>Performed data cleaning and validation on millions of live datasets from clients </li>
-                          <li>Wrote automated web scraping scripts and sent API requests to acquire information from logistics corporations with >99.9% success rate</li>
-                          <li>Blended vessel trajectory and ocean conditions data to predict shipment delay with 91% accuracy </li>
-                      </ul>
-                  </div>
+                </div>
+                <div class="divide-line"></div>
+                <div class="company">
+                  <a class="organization-pic" href="https://orkestrascs.com/"><img class="img" src="/pic/ORKESTRA_logo.png"></img></a>
+                  <p class="organization">Orkestra SCS</p>
+                </div>
               </div>
+              <ul>
+                <li>Performed data cleaning and validation on millions of live datasets from clients </li>
+                <li>Wrote automated web scraping scripts and sent API requests to acquire information from logistics corporations with >99.9% success rate</li>
+                <li>Blended vessel trajectory and ocean conditions data to predict shipment delay with 91% accuracy </li>
+              </ul>
+            </div>
           </div>
+
           <div class = "card">
-              <div class="media-container"><img class="img" id="mobile1" src="/pic/lithplus.jpg" alt=""></div>
-              <div class = "content">
+            <div class="media-container" id="mobile1"><img class="img" src="/pic/lithplus.jpg" alt=""></div>
+            <div class="details">
+              <div class="info">
+                <div class="job">
                   <p class = "position"> Data Analyst</p>
                   <p class = "date"> May 2019 - August 2019</p>
-                  <a class = "organization-container" href="http://www.lithplus.com/">
-                    <img class = "organization-pic" class="img" src="/pic/LITHPLUS_logo.png"></img>
-                    <p class = "organization"> Union Lithplus Energy Corp.</p>
-                  </a>
-                  <div class = "text">
-                      <ul>
-                          <li>Improved assembly line efficiency by 15% and adjustmented synchronization based on worker feedback</li>
-                          <li>Developed analytical models and used statistical techniques (predictive value, time series analysis, A/B testing, etc.) to ensure high quality analysis</li>
-                          <li>Set up automated data queries and pipelines to speed up future analysis </li>
-                      </ul>
-                  </div>
+                </div>
+                <div class="divide-line"></div>
+                <div class="company">
+                  <a class="organization-pic" href="http://www.lithplus.com/"><img class="img" src="/pic/LITHPLUS_logo.png"></img></a>
+                  <p class="organization">Union Lithplus Energy Corp.</p>
+                </div>
               </div>
-              <div class="media-container"><img class="img" id="pc1" src="/pic/lithplus.jpg" alt=""></div>
+              <ul>
+                <li>Improved assembly line efficiency by 15% and adjustmented synchronization based on worker feedback</li>
+                <li>Developed analytical models and used statistical techniques (predictive value, time series analysis, A/B testing, etc.) to ensure high quality analysis</li>
+                <li>Set up automated data queries and pipelines to speed up future analysis </li>
+              </ul>
+            </div>
+            <div class="media-container" id="pc1"><img class="img" src="/pic/lithplus.jpg" alt=""></div>
           </div>
+
           <div class = "card">
-              <div class="media-container"><img class="img" src="/pic/SEL.png" alt=""></div>
-              <div class = "content">
-                  <p class = "position"> Engineering Intern</p>
-                  <p class = "date"> July 2018 - August 2018</p>
-                  <a class = "organization-container" href="https://selinc.com/">
-                    <img class = "organization-pic" class="img" src="/pic/SEL_logo.png"></img>
-                    <p class = "organization"> Schweitzer Engineering Laboratories</p>
-                  </a>
-                  <div class = "text">
-                      <ul>
-                          <li>Programmed Real Time Automation Controllers (RTACs) to identify faults in feedback data from protection relays every 2 milliseconds</li>
-                          <li>Developed and demoed Human Machine Interfaces in AcSELerator Diagram Builder based on client requirements, improving task completion time by 19%</li>
-                      </ul>
+            <div class="media-container"><img class="img" src="/pic/SEL.png" alt=""></div>
+            <div class="details">
+              <div class="info">
+                  <div class="job">
+                      <p class = "position"> Engineering Intern</p>
+                      <p class = "date"> July 2018 - August 2018</p>
+                  </div>
+                  <div class="divide-line"></div>
+                  <div class="company">
+                      <a class="organization-pic" href="https://selinc.com/"><img class="img" src="/pic/SEL_logo.png"></img></a>
+                      <p class="organization">Schweitzer Engineering Laboratories</p>
                   </div>
               </div>
+              <ul>
+                  <li>Programmed Real Time Automation Controllers (RTACs) to identify faults in feedback data from protection relays every 2 milliseconds</li>
+                  <li>Developed and demoed Human Machine Interfaces in AcSELerator Diagram Builder based on client requirements, improving task completion time by 19%</li>
+              </ul>
+          </div>
           </div>
       </div>
   </section>
@@ -142,58 +151,69 @@
   <section class = "competitions" id="competitions">
       <div class = "secondary_heading"> Competitions </div>
       <div>
-          <div class = "card">
-              <div class="media-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZhRG6z3ErKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-              <div class = "content">
-                  <p class = "position"> Braking System Lead</p>
-                  <p class = "date"> July 2019 - Present</p>
-                  <a class = "organization-container" href="https://www.utht.ca/">
-                    <img class = "organization-pic" class="img" src="/pic/UTHT_logo.png"></img>
-                    <p class = "organization"> University of Toronto Hyperloop Team</p>
-                  </a>
-                  <div class = "text">
-                      <ul>
-                          <li>Led team of engineers to develop braking system methodically and efficiently</li>
-                          <li>Formulated robust design through Collaboration with industry professionals, research on past solutions, published articles, and spec sheets. </li>
-                      </ul>
-                  </div>
+          <div class="card">
+            <div class="media-container"><iframe src="https://www.youtube.com/embed/ZhRG6z3ErKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            <div class="details">
+              <div class="info">
+                <div class="job">
+                  <p class="position"> Braking System Lead</p>
+                  <p class="date"> July 2019 - Present</p>
+                </div>
+                <div class="divide-line"></div>
+                <div class="company">
+                  <a class="organization-pic" href="https://www.utht.ca/"><img class="img" src="/pic/UTHT_logo.png"></img></a>
+                  <p class="organization">University of Toronto Hyperloop Team</p>
+                </div>
               </div>
+              <ul>
+                <li>Led team of engineers to develop braking system methodically and efficiently</li>
+                <li>Formulated robust design through Collaboration with industry professionals, research on past solutions, published articles, and spec sheets. </li>
+              </ul>
+            </div>
           </div>
-          <div class = "card">
-              <div class="media-container"><img class="img" id="mobile2" src="/pic/vex.jpg" alt=""></div>
-              <div class = "content">
-                  <p class = "position"> Chief Engineer</p>
-                  <p class = "date"> September 2016 - June 2018</p>
-                  <a class = "organization-container" href="https://trubotics.github.io/">
-                    <img class = "organization-pic" class="img" src="/pic/VEX_logo.png"></img>
-                    <p class = "organization"> Robotics Club Executive Team</p>
-                  </a>
-                  <div class = "text">
-                      <ul>
-                          <li>Managed 5 teams design progress, inventory, and club sponsorships</li>
-                          <li>Hosted engineering workshops to teach robotics principles to club members</li>
-                          <li>Designed robots in team of 9 and ranked top 10% in Provincial Championship</li>
-                      </ul>
-                  </div>
+
+          <div class="card">
+            <div class="media-container" id="mobile2"><img class="img" src="/pic/vex.jpg" alt=""></div>
+            <div class="details">
+              <div class="info">
+                <div class="job">
+                  <p class="position"> Chief Engineer</p>
+                  <p class="date"> September 2016 - June 2018</p>
+                </div>
+                <div class="divide-line"></div>
+                <div class="company">
+                  <a class="organization-pic" href="https://trubotics.github.io/"><img class="img" src="/pic/VEX_logo.png"></img></a>
+                  <p class="organization"> VEX Robotics 10801 Executive Team</p>
+                </div>
               </div>
-              <div class="media-container"><img class="img" id="pc2" src="/pic/vex.jpg" alt=""></div>
+              <ul>
+                <li>Managed 5 teams design progress, inventory, and club sponsorships</li>
+                <li>Hosted engineering workshops to teach robotics principles to club members</li>
+                <li>Designed robots in team of 9 and ranked top 10% in Provincial Championship</li>
+              </ul>
+            </div>
+            <div class="media-container" id="pc2"><img class="img" src="/pic/vex.jpg" alt=""></div>
           </div>
-          <div class = "card">
-              <div class="media-container"><img class="img" src="/pic/formula.jpg" alt=""></div>
-              <div class = "content">
-                  <p class = "position"> Engine System Member</p>
-                  <p class = "date"> September 2018 - April 2019</p>
-                  <a class = "organization-container" href="https://fsaeutoronto.ca/">
-                    <img class = "organization-pic" class="img" src="/pic/UTFR_logo.png"></img>
-                    <p class = "organization"> University of Toronto Formula Racing</p>
-                  </a>
-                  <div class = "text">
-                      <ul>
-                          <li>Necessary parts of the car was designed using ANSYS and Solidworks and fabricated using lathes and milling machines.
-                              Additive manufacturing techniques were also used to make lightweight aerodynamic components</li>
-                      </ul>
+
+          <div class="card">
+            <div class="media-container"><img class="img" src="/pic/formula.jpg" alt=""></div>
+            <div class="details">
+              <div class="info">
+                  <div class="job">
+                      <p class="position"> Engine System Member</p>
+                      <p class="date"> September 2018 - April 2019</p>
+                  </div>
+                  <div class="divide-line"></div>
+                  <div class="company">
+                      <a class="organization-pic" href="https://fsaeutoronto.ca/"><img class="img" src="/pic/UTFR_logo.png"></img></a>
+                      <p class="organization">University of Toronto Formula Racing</p>
                   </div>
               </div>
+              <ul>
+                  <li>Necessary parts of the car was designed using ANSYS and Solidworks and fabricated using lathes and milling machines.</li>
+                  <li>Additive manufacturing techniques were also used to make lightweight aerodynamic components</li>
+              </ul>
+            </div>
           </div>
       </div>
   </section>
@@ -365,7 +385,7 @@
   </section>
 
   <section class = "skills" id="skills">
-      <div class = "skills-heading"> Skills </div>
+    <div class="secondary_heading"> Skills </div>
       <div class="grid-container">
           <div class="flip-card">
               <div class="flip-card-inner">
@@ -458,7 +478,7 @@
   </section>
 
   <footer>
-      <div class = "footquote"> Let's work together!</div>
+    <div class="secondary_heading"> Let's work together!</div>
       <div class = "links">
           <a href="https://www.linkedin.com/in/liuanton/"  target="_blank"> <i class="fab fa-linkedin"></i></a>
           <a href="https://github.com/liuantonliu"  target="_blank"><i class="fab fa-github-square""></i></a>
@@ -478,8 +498,6 @@
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/59ed9f4449.js" crossorigin="anonymous"></script>
     <!-- slick carousel -->
-    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
-    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
     <script type="text/javascript" src="slick.min.js"></script>
     <!-- javascript connection to smooth scrolling -->
     <script src="app.js"></script>
