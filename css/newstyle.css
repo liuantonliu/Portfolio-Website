@@ -179,8 +179,8 @@ nav .menu div {
           justify-content: center;
   -webkit-transform: scale(0);
           transform: scale(0);
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 nav .menu div div {
@@ -188,22 +188,71 @@ nav .menu div div {
   max-width: 90vw;
   max-height: 100vh;
   opacity: 0;
-  -webkit-transition: opacity 0.4s ease;
-  transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+nav .menu div div ul {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+nav .menu div div ul:hover li a {
+  opacity: 0.9;
 }
 
 nav .menu div div ul li {
   list-style: none;
-  color: var(--clr-light);
-  font-size: 2rem;
+  font-size: calc(15px + 1vw);
   padding: 1rem;
 }
 
+nav .menu div div ul li:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: var(--clr-light);
+  font-size: 6em;
+  font-weight: 700;
+  pointer-events: none;
+  opacity: 0;
+  letter-spacing: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  white-space: nowrap;
+}
+
+nav .menu div div ul li:hover:before {
+  opacity: 0.1;
+  letter-spacing: 0px;
+}
+
 nav .menu div div ul li a {
-  color: inherit;
   text-decoration: none;
-  -webkit-transition: color 0.4s ease;
-  transition: color 0.4s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  padding: 6px 15px;
+  text-transform: uppercase;
+  display: inline-block;
+  z-index: 1;
+}
+
+nav .menu div div ul li a:hover {
+  z-index: 5;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  opacity: 1;
 }
 
 .about, .experiences, .competitions, .skills, .projects {
@@ -213,8 +262,8 @@ nav .menu div div ul li a {
 }
 
 .secondary_heading {
-  padding: 50px 0;
-  font-size: calc(30px + 0.5vw);
+  padding: calc(20px + 1vw) 0;
+  font-size: calc(25px + 1vw);
   font-weight: 700;
   text-align: center;
 }
@@ -275,7 +324,7 @@ nav .menu div div ul li a {
   font-size: calc(20px + 3vw);
   font-weight: 700;
   white-space: nowrap;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   margin-bottom: 20px;
   position: relative;
   background: transparent;
@@ -303,7 +352,7 @@ nav .menu div div ul li a {
     margin-bottom: -40px;
   }
   75% {
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     margin-bottom: -40px;
   }
 }
@@ -318,7 +367,7 @@ nav .menu div div ul li a {
     margin-bottom: -40px;
   }
   75% {
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     margin-bottom: -40px;
   }
 }
@@ -342,9 +391,8 @@ nav .menu div div ul li a {
 }
 
 .about {
-  padding: 0 10vw;
+  padding: 0 10vw 0 35vw;
   position: relative;
-  padding-left: 35vw;
   background-color: var(--clr-light);
 }
 
@@ -358,12 +406,11 @@ nav .menu div div ul li a {
 }
 
 .about .about__container {
-  height: 100%;
   width: 100%;
   background: rgba(236, 236, 236, 0.85);
   position: relative;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 2vw;
   font-size: calc(13.5px + 0.5vw);
 }
 
@@ -410,69 +457,119 @@ nav .menu div div ul li a {
   padding: 15px 0;
 }
 
+@media screen and (max-width: 900px) {
+  .about {
+    padding: 0;
+  }
+}
+
 .card {
   -webkit-box-shadow: 0 0 15px rgba(100, 100, 100, 0.2);
           box-shadow: 0 0 15px rgba(100, 100, 100, 0.2);
-  padding: 20px;
+  padding: 2vw;
   margin-bottom: 50px;
 }
 
 .card .media-container .img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.card .media-container img#pc1, .card .media-container img#pc2 {
-  display: none;
+.card .media-container iframe {
+  max-width: 100%;
 }
 
-.card .content .position {
-  font-size: 30px;
-  padding: 10px 0;
+.card .details {
+  padding: 2vw;
+}
+
+.card .details .info {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0 2vw;
+  -ms-grid-columns: auto 2px auto;
+      grid-template-columns: auto 2px auto;
+  margin-bottom: 5vw;
+}
+
+.card .details .info .job .position {
+  font-size: calc(15px + 1vw);
+  padding: 0 0 5px 0;
   font-weight: 600;
 }
 
-.card .content .date {
-  font-size: 18px;
-  padding: 10px 0;
+.card .details .info .job .date {
+  font-size: calc(8px + 1vw);
   font-weight: 400;
 }
 
-.card .content .organization-container .organization-pic {
-  max-height: 100px;
-  max-width: 500px;
+.card .details .info .divide-line {
+  background-color: var(--clr-dark);
 }
 
-.card .content .organization-container .organization {
-  font-size: 25px;
+.card .details .info .company {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .details .info .company .organization-pic img {
+  width: calc(60px + 1vw);
+}
+
+.card .details .info .company .organization-pic img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.card .details .info .company .organization {
+  padding-left: 2vw;
+  font-size: calc(8px + 1vw);
   font-weight: 400;
 }
 
-.card .content .text ul li {
-  font-size: 15px;
+.card .details ul li {
+  font-size: calc(10px + 0.8vw);
   padding-bottom: 5px;
+}
+
+@media screen and (max-width: 900px) {
+  #pc1, #pc2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 901px) {
+  #mobile1, #mobile2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .card .media-container iframe {
+    width: 100vw;
+    height: 100%;
+  }
 }
 
 .projects .software .softhead, .projects .software .hardhead, .projects .hardware .softhead, .projects .hardware .hardhead {
   color: var(--clr-secondary);
-  font-size: 40px;
-  position: absolute;
-  margin-left: 0;
-  margin-top: 180px;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-}
-
-.projects .software .hardhead, .projects .hardware .hardhead {
-  margin-top: 200px;
+  font-size: calc(20px + 1vw);
 }
 
 .projects .software .box, .projects .hardware .box {
   height: auto;
-  margin: 10vh auto;
+  margin: 10vh auto 20vh;
   position: relative;
 }
 
@@ -495,8 +592,8 @@ nav .menu div div ul li a {
 }
 
 .projects .software .box .projcard .vid-container .img, .projects .software .box .projcard .vid-container video, .projects .software .box .projcard .img-container .img, .projects .software .box .projcard .img-container video, .projects .hardware .box .projcard .vid-container .img, .projects .hardware .box .projcard .vid-container video, .projects .hardware .box .projcard .img-container .img, .projects .hardware .box .projcard .img-container video {
-  width: auto;
-  height: 400px;
+  width: 400px;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -564,21 +661,37 @@ nav .menu div div ul li a {
 }
 
 .projects .software .slider-prev, .projects .hardware .slider-prev {
-  left: 25%;
+  left: 10%;
 }
 
 .projects .software .slider-next, .projects .hardware .slider-next {
-  right: 25%;
+  right: 10%;
 }
 
 .projects .software .slick-arrow, .projects .hardware .slick-arrow {
   z-index: 5;
-  top: 105%;
+  top: calc(100% + 25px);
   position: absolute;
   cursor: pointer;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 500px) {
+  .projects .software .box, .projects .hardware .box {
+    width: 270px;
+  }
+  .projects .software .box .projcard, .projects .hardware .box .projcard {
+    height: 380px;
+    width: 250px;
+  }
+  .projects .software .box .projcard .vid-container .img, .projects .software .box .projcard .vid-container video, .projects .software .box .projcard .img-container .img, .projects .software .box .projcard .img-container video, .projects .hardware .box .projcard .vid-container .img, .projects .hardware .box .projcard .vid-container video, .projects .hardware .box .projcard .img-container .img, .projects .hardware .box .projcard .img-container video {
+    width: 250px;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 501px) {
   .box {
     width: 420;
   }
@@ -602,25 +715,18 @@ nav .menu div div ul li a {
   }
 }
 
-.skills .skills-heading {
-  color: var(--clr-dark);
-  padding: 50px;
-  font-size: calc(40px + 0.5vw);
-  font-weight: 700;
-}
-
 .skills .grid-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   background-color: transparent;
 }
 
 .skills .grid-container .flip-card {
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  margin: 20px;
+  margin: calc(10px + 1vw);
   height: 20vh;
 }
 
@@ -657,7 +763,7 @@ nav .menu div div ul li a {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-size: 2rem;
+  font-size: calc(15px + 1vw);
 }
 
 .skills .grid-container .flip-card .flip-card-inner .flip-card-back {
@@ -669,12 +775,13 @@ nav .menu div div ul li a {
 }
 
 .skills .grid-container .flip-card .flip-card-inner .flip-card-back ul {
+  padding: 2vw;
   position: relative;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-size: 1rem;
+  font-size: calc(12px + 0.5vw);
 }
 
 .skills .grid-container .flip-card:hover {
@@ -698,13 +805,6 @@ footer {
   background-color: var(--clr-dark);
   color: var(--clr-light);
   text-align: center;
-}
-
-footer .footquote {
-  padding-top: 50px;
-  padding-bottom: 30px;
-  font-size: calc(40px + 0.5vw);
-  font-weight: 600;
 }
 
 footer p {
@@ -731,13 +831,13 @@ footer p {
 }
 
 .links a i {
-  font-size: 40px;
+  font-size: calc(25px + 1vw);
   margin: auto;
 }
 
 .links a img {
-  height: 40px;
-  width: 40px;
+  height: calc(25px + 1vw);
+  width: calc(25px + 1vw);
 }
 
 .links a i:hover, .links a img:hover {
