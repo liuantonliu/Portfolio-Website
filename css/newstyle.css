@@ -391,7 +391,8 @@ nav .menu div div ul li a:hover {
 }
 
 .about {
-  padding: 0 10vw 0 35vw;
+  height: 100%;
+  padding: 0 35vw 0 10vw;
   position: relative;
   background-color: var(--clr-light);
 }
@@ -406,11 +407,25 @@ nav .menu div div ul li a:hover {
 }
 
 .about .about__container {
+  height: 100%;
   width: 100%;
   background: rgba(236, 236, 236, 0.85);
   position: relative;
   text-align: center;
-  padding: 0 2vw;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: auto 2vw;
   font-size: calc(13.5px + 0.5vw);
 }
 
