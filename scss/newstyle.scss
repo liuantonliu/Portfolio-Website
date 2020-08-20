@@ -295,7 +295,8 @@ nav {
 }
 
 .about{
-    padding: 0 10vw 0 35vw;
+    height: 100%;
+    padding: 0 35vw 0 10vw;
     position:relative;
     background-color: var(--clr-light);
     .about-pic{
@@ -306,12 +307,16 @@ nav {
         object-fit:cover;
     }
     .about__container{
-        // height: 100%;
+        height: 100%;
         width: 100%;
         background: rgba(236,236,236,0.85);
         position:relative;
         text-align:center;
-        padding: 0 2vw;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        padding: auto 2vw;
         font-size: calc(13.5px + 0.5vw);
         .quote{
             padding: 0 1em;
