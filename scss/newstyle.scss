@@ -318,38 +318,27 @@ nav {
         justify-content: center;
         padding: auto 2vw;
         font-size: calc(13.5px + 0.5vw);
-        .quote{
-            padding: 0 1em;
-            font-size: calc(20px + 0.7vw);
-            font-weight: 700;
-        }
-        .author{
-            padding-left: 25%;
-            padding-top: 1em;
-        }
         .mission-statement{
-            padding: 2em;
+            padding: 2rem 5vw;
             text-align: left;
             line-height: calc(22px + 0.5vw);
+            a{
+                text-decoration: underline;
+            }
         }
-        .spare-time{
-            padding: 0 2em 0.5em 2em ;
+        .chat{
+            padding: 0 5vw 0.5em 5vw ;
+            width:100%;
             text-align: left;
-            div{
-                padding-bottom: 0.5em;
-            }
-            ul{
-                padding-left: 20px;
-                li{
-                    padding-bottom: 0.1em;
-                }
-            }
+            align-items: left; 
+            justify-content: left;
+            
         }
         .contact-me{
             padding-bottom: 1em;
             font-size: calc(18px + 0.5vw);
             .text{
-                padding: 15px 0;
+                padding: 5vh 0;
             }
         }
     }
@@ -357,6 +346,10 @@ nav {
 @media screen and (max-width: 900px){
     .about{
         padding: 0;
+        height: auto;
+        .about__container{
+            height: auto;
+        }
     }
 }
 
